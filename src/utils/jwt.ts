@@ -7,7 +7,7 @@ export interface jwtPayload {
 }
 
 export class JWTUtils {
-  signToken(payload: jwtPayload): string {
+  static signToken(payload: jwtPayload): string {
     if (!config.jwt.secret) {
       throw new Error("JWT secret is not configured");
     }
@@ -17,14 +17,14 @@ export class JWTUtils {
     return jwt.sign(payload, config.jwt.secret, options);
   }
 
-  verifyToken(token: string): jwtPayload {
+  static verifyToken(token: string): jwtPayload {
     if (!config.jwt.secret) {
       throw new Error("JWT secret is not configured");
     }
     return jwt.verify(token, config.jwt.secret) as jwtPayload;
   }
 
-  signRefreshToken(payload: jwtPayload): string {
+  static signRefreshToken(payload: jwtPayload): string {
     if (!config.jwt.refreshSecret) {
       throw new Error("Refresh token secret is not configured");
     }
@@ -36,7 +36,7 @@ export class JWTUtils {
     return jwt.sign(payload, config.jwt.refreshSecret, options);
   }
 
-  verifyRefreshToken(token: string): jwtPayload {
+  static verifyRefreshToken(token: string): jwtPayload {
     if (!config.jwt.refreshSecret) {
       throw new Error("Refresh token secret is not configured");
     }
