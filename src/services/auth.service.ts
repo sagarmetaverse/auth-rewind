@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../generated/prisma";
 import { LoginDTO, RegisterDTO } from "../types/auth";
 import { jwtPayload, JWTUtils } from '../utils/jwt';
 import { PasswordUtils } from "../utils/password";

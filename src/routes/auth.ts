@@ -3,7 +3,7 @@ import { AuthService } from "../services/auth.service";
 import { Register } from "ts-node";
 import { LoginDTO, RegisterDTO } from "../types/auth";
 import router from "./protected";
-import { prismaClient } from "../server";
+import { prismaClient } from "../database";
 
 const authRoutes = Router();
 
